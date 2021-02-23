@@ -23,10 +23,10 @@ public class UserService implements IUserService {
 		
 		 userReposerotry.save(user);
 	}
-
+	
 	@Override
-	public void deleteUser(Long id) {
-		userReposerotry.delete(user);;
+	public void deleteUser(Long Id) {
+		userReposerotry.deleteById(Id);
 		
 	}
 
