@@ -21,7 +21,7 @@ public class UserService implements IUserService {
 	@Override
 	public void addUser(User user) {
 		
-		 userReposerotry.save(user);
+			 userReposerotry.save(user);
 	}
 	
 	@Override
