@@ -28,6 +28,17 @@ public class PanierService implements IPanierService {
 		
 	}
 
+	@Override
+	public void deleteFromPanier(Long Id) {
+		panierRepository.deleteById(Id);
 
+	}
+
+
+	@Override
+	public void viderPanier(Panier panier) {
+		panierRepository.delete(panier);
+		
+	}
 
 }

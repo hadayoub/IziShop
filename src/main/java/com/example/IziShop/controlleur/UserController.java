@@ -23,16 +23,16 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 	
-	@RequestMapping(value = "/all", method= RequestMethod.GET)
+	@GetMapping("/all")
 	public 	ResponseEntity<List<User>> getAllUsers(){
 		return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/add", method= RequestMethod.POST)
+	@PostMapping("/addUser")
 	public void addUser(@RequestBody User user) {
 		 userService.addUser(user);
 	}
-	@DeleteMapping("/delete")
+	@DeleteMapping("/deleteUser")
 	public void deleteUser(@RequestBody Long Id) {
 		userService.deleteUser(Id);
 	}

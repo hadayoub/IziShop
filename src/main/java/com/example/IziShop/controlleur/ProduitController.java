@@ -26,11 +26,11 @@ public class ProduitController {
 		return new ResponseEntity<>(produitService.getAll(), HttpStatus.OK);
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/addProduit")
 	public void addProduit(@RequestBody Produit produit) {
 		produitService.addProduit(produit);
 	}
-	@DeleteMapping("/delete")
+	@DeleteMapping("/deleteProduit")
 	public void deleteProduit(@RequestBody Long Id) {
 		produitService.deleteProduit(Id);
 	}

@@ -11,4 +11,9 @@ public interface IPanierService {
 	List<Panier> getAll();
 
 	void addToPanier(Panier panier);
+
+
+	void deleteFromPanier(Long Id);
+
+	void viderPanier(Panier panier);
 }
