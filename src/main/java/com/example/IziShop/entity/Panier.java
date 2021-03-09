@@ -2,6 +2,8 @@ package com.example.IziShop.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -9,42 +11,71 @@ import javax.persistence.Table;
 public class Panier {
 	@Id
 	private Long Id;
-	private Long user_id;
-	private Long produit_id;
+	@ManyToOne
+	@JoinColumn(name = "ID",referencedColumnName = "Id", insertable = false, updatable = false)
+	private Produit produit;
+
+	@ManyToOne
+	@JoinColumn(name = "ID",referencedColumnName = "Id", insertable = false, updatable = false)
+	private User User;
+
+	
 	private Long Qte;
-	public Panier(Long id, Long user_id, Long produit_id, Long qte) {
-		super();
+
+
+	public Panier(Long id, Produit produit, com.example.IziShop.entity.User user, Long qte) {
 		Id = id;
-		this.user_id = user_id;
-		this.produit_id = produit_id;
+		this.produit = produit;
+		User = user;
 		Qte = qte;
 	}
+
+
 	public Panier() {
-		
+
 	}
+
+
 	public Long getId() {
 		return Id;
 	}
+
+
 	public void setId(Long id) {
 		Id = id;
 	}
-	public Long getUser_id() {
-		return user_id;
+
+
+	public Produit getProduit() {
+		return produit;
 	}
-	public void setUser_id(Long user_id) {
-		this.user_id = user_id;
+
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
 	}
-	public Long getProduit_id() {
-		return produit_id;
+
+
+	public User getUser() {
+		return User;
 	}
-	public void setProduit_id(Long produit_id) {
-		this.produit_id = produit_id;
+
+
+	public void setUser(User user) {
+		User = user;
 	}
+
+
 	public Long getQte() {
 		return Qte;
 	}
+
+
 	public void setQte(Long qte) {
 		Qte = qte;
 	}
+
+	
+	
 	
 }
