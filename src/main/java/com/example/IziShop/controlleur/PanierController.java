@@ -43,4 +43,5 @@ public class PanierController {
 	public void viderPanier(@RequestBody Panier panier) {
 		panierService.viderPanier(panier);
 	}
+	
 }

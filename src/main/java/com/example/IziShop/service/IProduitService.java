@@ -10,6 +10,9 @@ public interface IProduitService {
 	void addProduit(Produit produit);
 
 	void deleteProduit(Long Id);
+
+	void updateProduit(Produit produit);
+
 	
 
 }

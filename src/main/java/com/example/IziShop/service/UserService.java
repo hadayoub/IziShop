@@ -29,5 +29,4 @@ public class UserService implements IUserService {
 		userReposerotry.deleteById(Id);
 		
 	}
-
 }

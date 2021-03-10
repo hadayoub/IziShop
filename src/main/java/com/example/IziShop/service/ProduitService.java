@@ -29,4 +29,11 @@ public class ProduitService implements IProduitService {
 
 	}
 
+	@Override
+	public void updateProduit(Produit produit) {
+	
+		
+	}
+
+
 }
