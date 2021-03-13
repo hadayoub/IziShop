@@ -3,7 +3,9 @@ package com.example.IziShop.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
 
 import com.example.IziShop.entity.Produit;
 import com.example.IziShop.reposetory.IProduitRepository;
@@ -30,10 +32,16 @@ public class ProduitService implements IProduitService {
 	}
 
 	@Override
-	public void updateProduit(Produit produit) {
-	
-		
+	public ResponseEntity<Object> UpdateProduit( Produit produit,long Id) {
+		produitRepository.findById(Id);
+		if (!produitRepository.existsById(Id))
+		{
+			return ResponseEntity.notFound().build();
+		}
+		produit.setId(Id);
+		produitRepository.save(produit);
+		return ResponseEntity.noContent().build();
+						
 	}
-
 
 }

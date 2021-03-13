@@ -2,6 +2,8 @@ package com.example.IziShop.service;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.example.IziShop.entity.Produit;
 
 public interface IProduitService {
@@ -11,7 +13,7 @@ public interface IProduitService {
 
 	void deleteProduit(Long Id);
 
-	void updateProduit(Produit produit);
+	ResponseEntity<Object> UpdateProduit(Produit produit, long Id);
 
 	
 

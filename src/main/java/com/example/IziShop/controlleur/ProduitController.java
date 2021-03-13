@@ -36,7 +36,10 @@ public class ProduitController {
 	public void deleteProduit(@RequestBody Long Id) {
 		produitService.deleteProduit(Id);
 	}
-	
+	@PutMapping("/UpdateProduit/{Id}")
+	public void UpdateProduit(@RequestBody Produit produit, @PathVariable long Id) {
+		produitService.UpdateProduit(produit, Id);
+	}
 	  
 	
 
