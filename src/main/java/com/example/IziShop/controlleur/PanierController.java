@@ -28,7 +28,7 @@ public class PanierController {
 	
 	@PostMapping("/addToPanier")
 	public void addToPanier(@RequestBody Panier panier ) {
-		panierService.addToPanier(panier);
+		panierService.insert(panier);
 	}
 	
 	@GetMapping("/AllPanier")
@@ -37,7 +37,7 @@ public class PanierController {
 	}
 	@DeleteMapping("/deleteFromPanier")
 	public void deleteFromPanier(@RequestBody Long Id) {
-		panierService.deleteFromPanier(Id);
+		panierService.delete(Id);
 	}
 	@DeleteMapping("/viderPanier")
 	public void viderPanier(@RequestBody Panier panier) {

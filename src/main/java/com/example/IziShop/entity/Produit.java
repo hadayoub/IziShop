@@ -6,7 +6,7 @@ import javax.persistence.Id;
 
 @Entity
 @Table(name = "Produit")
-public class Produit {
+public class Produit extends com.example.IziShop.entity.Entity{
 	@Id
 	private Long Id;
 	private String nomP;

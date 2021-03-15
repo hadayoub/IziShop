@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Panier")
-public class Panier {
+public class Panier extends com.example.IziShop.entity.Entity {
 	@Id
 	private Long Id;
 	@ManyToOne

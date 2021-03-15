@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "User")
-public class User {
+public class User extends com.example.IziShop.entity.Entity{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private Long Id;
