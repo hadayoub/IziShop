@@ -11,4 +11,10 @@ public interface IProduitRepository extends JpaRepository<Produit,Long>{
 
 
 
+
+	
+
+
+
+
 }

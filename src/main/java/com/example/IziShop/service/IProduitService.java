@@ -7,6 +7,9 @@ import org.springframework.http.ResponseEntity;
 import com.example.IziShop.entity.Produit;
 
 public interface IProduitService {
+	
+	Produit get(Long id);
+	
 	List<Produit> getAll();
 
 	void addProduit(Produit produit);
@@ -15,6 +18,12 @@ public interface IProduitService {
 
 	ResponseEntity<Object> UpdateProduit(Produit produit, long Id);
 
+	void increment(Long Id, Long qte);
+
+	void decrement(Long Id, Long qte);
+
+
 	
+
 
 }

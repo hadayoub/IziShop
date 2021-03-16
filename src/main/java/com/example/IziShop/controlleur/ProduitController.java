@@ -31,14 +31,25 @@ public class ProduitController {
 	@PostMapping("/addProduit")
 	public void addProduit(@RequestBody Produit produit) {
 		produitService.addProduit(produit);
+		
 	}
 	@DeleteMapping("/deleteProduit")
-	public void deleteProduit(@RequestBody Long Id) {
+	public void deleteProduit(@RequestBody Long Id ) {
 		produitService.deleteProduit(Id);
+		
 	}
 	@PutMapping("/UpdateProduit/{Id}")
 	public void UpdateProduit(@RequestBody Produit produit, @PathVariable long Id) {
 		produitService.UpdateProduit(produit, Id);
+	}
+	
+	@PutMapping("/incrementProduit/{Id}/{Qte}")
+	public void addStockProduit(@PathVariable long Id, @PathVariable long Qte) {		
+		produitService.increment(Id, Qte);
+	}
+	@PutMapping("/decrementProduit/{Id}/{Qte}")
+	public void deleteStockProduit(@PathVariable long Id, @PathVariable long Qte) {		
+		produitService.decrement(Id, Qte);
 	}
 	  
 	

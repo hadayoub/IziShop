@@ -17,6 +17,7 @@ public class Produit {
 	private String couleurs;
 	private String description_courte;
 	private String description_long;
+	private Long qte_stock;
 	
 	public Long getId() {
 		return Id;
@@ -56,13 +57,22 @@ public class Produit {
 	}
 	public Produit() {
 	}
-	public Produit(Long id, String nomP, String prix, String categorie, String taille, String couleurs) {
+
+	public Produit(Long id, String nomP, String prix, String categorie, String image, String taille, String couleurs,
+			String description_courte, String description_long, Long qte_stock) {
 		Id = id;
 		this.nomP = nomP;
 		this.prix = prix;
 		this.categorie = categorie;
+		this.image = image;
 		this.taille = taille;
 		this.couleurs = couleurs;
+		this.description_courte = description_courte;
+		this.description_long = description_long;
+		this.qte_stock =qte_stock;
+	}
+	public void setQte_stock(Long qte_stock) {
+		this.qte_stock = qte_stock;
 	}
 	public String getImage() {
 		return image;
@@ -82,5 +92,9 @@ public class Produit {
 	public void setDescription_long(String description_long) {
 		this.description_long = description_long;
 	}
+	public Long getQte_stock() {
+		return qte_stock;
+	}
+	
 	
 }
