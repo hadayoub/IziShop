@@ -1,7 +1,5 @@
 package com.example.IziShop.service;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -68,8 +66,8 @@ public class ProduitService implements IProduitService {
 	}
 
 	@Override
-	public Produit get(Long id) {
-		return produitRepository.getOne(id);
+	public Optional<Produit> get(Long id) {
+		return produitRepository.findById(id);
 	}
 
 

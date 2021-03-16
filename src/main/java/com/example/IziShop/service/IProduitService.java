@@ -1,6 +1,7 @@
 package com.example.IziShop.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 
@@ -8,7 +9,8 @@ import com.example.IziShop.entity.Produit;
 
 public interface IProduitService {
 	
-	Produit get(Long id);
+	Optional<Produit> get(Long id);
+	
 	
 	List<Produit> getAll();
 
