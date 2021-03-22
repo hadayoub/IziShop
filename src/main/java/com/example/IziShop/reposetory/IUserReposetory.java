@@ -7,5 +7,7 @@ import com.example.IziShop.entity.User;
 
 @Repository
 public interface IUserReposetory extends JpaRepository<User, Long> {
-
+	User findByUsername (String username);
+	
+	
 }

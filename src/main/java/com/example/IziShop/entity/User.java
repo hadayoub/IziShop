@@ -12,7 +12,8 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private Long Id;
-	private String nomU;
+	private String username;
+	private String nom;
 	private String prenom;
 	private String mail;
 	private String ville;
@@ -25,10 +26,12 @@ public class User {
 
 	}
 
-	public User(Long id, String nomU, String prenom, String mail, String ville, String adresse, String telephone,
-			String password) {
+	public User(Long id, String username, String nom, String prenom, String mail, String ville, String adresse,
+			String telephone, String password) {
+		super();
 		Id = id;
-		this.nomU = nomU;
+		this.username = username;
+		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
 		this.ville = ville;
@@ -39,6 +42,8 @@ public class User {
 
 
 
+
+
 	public Long getId() {
 		return Id;
 	}
@@ -46,13 +51,22 @@ public class User {
 	public void setId(Long id) {
 		Id = id;
 	}
+	
 
-	public String getNomU() {
-		return nomU;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNomU(String nomU) {
-		this.nomU = nomU;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getnom() {
+		return nom;
+	}
+
+	public void setnom(String nom) {
+		this.nom = nom;
 	}
 
 	public String getPrenom() {
