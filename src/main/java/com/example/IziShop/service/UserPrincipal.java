@@ -1,4 +1,4 @@
-package com.example.IziShop.entity;
+package com.example.IziShop.service;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -6,6 +6,8 @@ import java.util.Collections;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.example.IziShop.entity.User;
 
 public class UserPrincipal implements UserDetails {
 
