@@ -2,6 +2,8 @@ package com.example.IziShop.service;
 
 import java.util.List;
 
+
+
 import com.example.IziShop.entity.User;
 
 public interface IUserService {
@@ -11,5 +13,7 @@ public interface IUserService {
 	void addUser(User user);
 
 	void deleteUser(Long id);
+
+
 
 }
