@@ -31,9 +31,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		System.out.println(passwordEncoder.encode("ayoub"));
 		System.out.println("***************************************");
 		auth.jdbcAuthentication()
-		.dataSource(dataSource)
-		.usersByUsernameQuery("select username as principal, password as credentials from user where username=?")
-		.authoritiesByUsernameQuery("select username as principal, role as role from users_roles where username=?")
+		.dataSource(dataSource)		
+		.usersByUsernameQuery("SELECT username as principal, password as credentials, active from user where username=?")
+		.authoritiesByUsernameQuery("SELECT username as principal, role as role from users_roles where username=?")
 		.passwordEncoder(passwordEncoder);
 	}
 
