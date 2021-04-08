@@ -23,7 +23,7 @@ public class TestUser {
 
 	@Test
 	public void whenFindAll_ReturnUsersList() {
-		User user = new User(1L,"ayoub","had","ayoub@haadcom","casa", "","05353566","PASSWORD", "USERNAM");
+		User user = new User(1L,"ayoub","had","ayoub@haadcom","casa", "","05353566","PASSWORD", "USERNAM", true);
 		when(userReposerotry.findAll()).thenReturn(Arrays.asList(user));
 		List<User> users = userReposerotry.findAll();
 		assertThat(users).hasSize(1);   
@@ -31,7 +31,7 @@ public class TestUser {
 	
 	@Test
 	public void addUser_ReturnList() {
-		User user = new User(1L,"ayoub","had","ayoub@haadcom","casa", "","05353566","PASSWORD", "USERNAM");
+		User user = new User(1L,"ayoub","had","ayoub@haadcom","casa", "","05353566","PASSWORD", "USERNAM",true);
 	    User savedUser = userReposerotry.save(user);
 	    assertThat(savedUser).isNotNull();
 	}

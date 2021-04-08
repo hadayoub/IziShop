@@ -2,6 +2,8 @@ package com.example.IziShop;
 
 
 
+import java.util.regex.Pattern;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.web.servlet.AuthorizeRequestsDsl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
@@ -35,21 +39,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		.usersByUsernameQuery("SELECT username as principal, password as credentials, active from user where username=?")
 		.authoritiesByUsernameQuery("SELECT username as principal, role as role from users_roles where username=?")
 		.passwordEncoder(passwordEncoder);
+		
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.formLogin();
-		http.authorizeRequests().antMatchers("/**/**");
-		http.authorizeRequests().anyRequest().authenticated();
 
-	}
-	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+	http.formLogin();	
+	http.authorizeRequests().antMatchers("*/swagger-ui.html/**").permitAll();
+	http.authorizeRequests().antMatchers("*/panier-controller/**","*/produit-controller/**","*/user-controller/**").hasRole("ADMIN");
+	http.authorizeRequests().antMatchers("*/panier-controller/**","*/user-controller/addUserUsingPOST").hasRole("USER");
+	http.authorizeRequests().anyRequest().authenticated();
 		
-	}
 
+}
+
+@Bean
+public PasswordEncoder passwordEncoder() {
+return new BCryptPasswordEncoder();
 	
 }
+
+	
+	}

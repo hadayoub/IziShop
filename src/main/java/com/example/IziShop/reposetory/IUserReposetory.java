@@ -8,7 +8,7 @@ import com.google.common.base.Optional;
 
 @Repository
 public interface IUserReposetory extends JpaRepository<User, Long> {
-	Optional<User> findByUsername (String username);
+	
 	
 	
 }
