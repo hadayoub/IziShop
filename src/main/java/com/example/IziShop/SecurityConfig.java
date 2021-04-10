@@ -47,11 +47,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 
 	http.formLogin();	
 	http.authorizeRequests().antMatchers("/swagger-ui.html/").access("hasRole('USER') or hasRole('ADMIN')");
-	http.authorizeRequests().antMatchers("/panier-controller/**").access("hasRole('USER') or hasRole('ADMIN')");
-	http.authorizeRequests().antMatchers("/produit-controller/**").access("hasRole('ADMIN')");
-	http.authorizeRequests().antMatchers("/user-controller/**").access("hasRole('ADMIN')");
-	http.authorizeRequests().antMatchers("/user-controller/addUserUsingPOST").hasRole("USER");
-	http.authorizeRequests().anyRequest().authenticated();
+	http.authorizeRequests().antMatchers("/produit/all").hasAuthority("USER");
+	http.authorizeRequests().antMatchers("/produit/addProduit").hasAuthority("ADMIN");
+	http.authorizeRequests().antMatchers("/produit/deleteProduit").hasAuthority("ADMIN");
+	http.authorizeRequests().antMatchers("/produit/UpdateProduit/{Id}").hasAuthority("ADMIN");
+	http.authorizeRequests().antMatchers("/produit/incrementProduit/{Id}/{Qte}").hasAuthority("ADMIN");
+	http.authorizeRequests().antMatchers("/produit/decrementProduit/{Id}/{Qte}").hasAuthority("ADMIN");
+	
+	http.authorizeRequests().antMatchers("/user/addUser").hasAuthority("USER");
+	http.authorizeRequests().antMatchers("/user/all").hasAuthority("ADMIN");
+	http.authorizeRequests().antMatchers("/user/deleteUser").hasAuthority("ADMIN");
+	
+	http.authorizeRequests().antMatchers("/Panier/*").hasAuthority("ADMIN,USER");
+	http.csrf().disable().authorizeRequests().anyRequest().authenticated();
 		
 
 }
