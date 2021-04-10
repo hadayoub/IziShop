@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		PasswordEncoder passwordEncoder=passwordEncoder();
 		System.out.println("***************************************");
-		System.out.println(passwordEncoder.encode("ayoub"));
+		System.out.println(passwordEncoder.encode("password"));
 		System.out.println("***************************************");
 		auth.jdbcAuthentication()
 		.dataSource(dataSource)		
@@ -46,9 +46,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	protected void configure(HttpSecurity http) throws Exception {
 
 	http.formLogin();	
-	http.authorizeRequests().antMatchers("*/swagger-ui.html/**").permitAll();
-	http.authorizeRequests().antMatchers("*/panier-controller/**","*/produit-controller/**","*/user-controller/**").hasRole("ADMIN");
-	http.authorizeRequests().antMatchers("*/panier-controller/**","*/user-controller/addUserUsingPOST").hasRole("USER");
+	http.authorizeRequests().antMatchers("/swagger-ui.html/").access("hasRole('USER') or hasRole('ADMIN')");
+	http.authorizeRequests().antMatchers("/panier-controller/**").access("hasRole('USER') or hasRole('ADMIN')");
+	http.authorizeRequests().antMatchers("/produit-controller/**").access("hasRole('ADMIN')");
+	http.authorizeRequests().antMatchers("/user-controller/**").access("hasRole('ADMIN')");
+	http.authorizeRequests().antMatchers("/user-controller/addUserUsingPOST").hasRole("USER");
 	http.authorizeRequests().anyRequest().authenticated();
 		
 
